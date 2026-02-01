@@ -17,14 +17,14 @@ This repository documents a real, reproducible setup where an LLM runs fully off
 
 ## 🧪 Tested hardware & software
 
-| Component | Details |
-|--------|--------|
-| Board | Raspberry Pi Zero 2W |
-| RAM | 512 MB |
-| CPU | ARM Cortex-A53 (aarch64) |
-| OS | Raspberry Pi OS Lite / Debian 13 (trixie) |
-| Kernel | 6.12.x (rpt-rpi-v8) |
-| Storage | microSD (swap-heavy) |
+| Component | Details                                   |
+|-----------|-------------------------------------------|
+| Board     | Raspberry Pi Zero 2W                      |
+| RAM       | 512 MB                                    |
+| CPU       | ARM Cortex-A53 (aarch64)                  |
+| OS        | Raspberry Pi OS Lite / Debian 13 (trixie) |
+| Kernel    | 6.12.62+rpt-rpi-v8                        |
+| Storage   | microSD (swap-heavy)                      |
 
 ---
 
