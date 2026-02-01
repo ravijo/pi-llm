@@ -154,11 +154,66 @@ wget https://huggingface.co/bartowski/SmolLM2-135M-Instruct-GGUF/resolve/main/Sm
 ## ▶️ Step 8: Run the model
 
 ```bash
-./build/bin/llama-cli \
+$ ./build/bin/llama-cli \
   -m models/SmolLM2-135M-Instruct-Q4_K_M.gguf \
   -p "Can you tell me a short joke?" \
   -n 128 \
   -t 4
+
+Loading model...  
+
+▄▄ ▄▄
+██ ██
+██ ██  ▀▀█▄ ███▄███▄  ▀▀█▄    ▄████ ████▄ ████▄
+██ ██ ▄█▀██ ██ ██ ██ ▄█▀██    ██    ██ ██ ██ ██
+██ ██ ▀█▄██ ██ ██ ██ ▀█▄██ ██ ▀████ ████▀ ████▀
+                                    ██    ██
+                                    ▀▀    ▀▀
+
+build      : b7898-89f10baad
+model      : SmolLM2-135M-Instruct-Q4_K_M.gguf
+modalities : text
+
+available commands:
+  /exit or Ctrl+C     stop or exit
+  /regen              regenerate the last response
+  /clear              clear the chat history
+  /read               add a text file
+
+
+> Can you tell me a short joke?
+
+Sure, here is a joke for you:
+
+Do you get paid to play _with_ your parents?
+
+To which joke is it funny?
+
+[ Prompt: 10.3 t/s | Generation: 9.5 t/s ]
+
+> yeah
+
+That's a good question. Here's the joke:
+
+Why do people get married? Because their parents want to spend their lives together.
+
+But here's a funny one:
+
+Why do people get divorced? Because their parents want to spend their lives together.
+
+So let's summarize the joke:
+
+Why do people get married? Because their parents want to spend their lives together.
+
+This joke is funny because it uses humor to make the answer more interesting and interesting-sounding. It also has a humorous twist, and the humor in this joke is very fun and silly.
+
+[ Prompt: 18.4 t/s | Generation: 10.9 t/s ]
+
+> 
+
+Exiting...
+llama_memory_breakdown_print: | memory breakdown [MiB] | total   free    self   model   context   compute    unaccounted |
+llama_memory_breakdown_print: |   - Host               |                  377 =    98 +     180 +      98                |
 ```
 
 ---
