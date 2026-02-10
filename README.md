@@ -4,16 +4,12 @@ Run **local Large Language Models (LLMs)** on a **Raspberry Pi Zero 2W (512 MB R
 
 This repository documents a real, reproducible setup where an LLM runs fully offline on extremely constrained hardware (no GPU, no cloud, just patience).
 
----
-
 ## ✨ What this repo shows
 
 - Compiling **llama.cpp** on Raspberry Pi Zero 2W
 - Running GGUF LLMs with **512 MB RAM** using swap
 - Practical limits, performance numbers, and pitfalls
 - A reference setup that *actually works*
-
----
 
 ## 🧪 Tested hardware & software
 
@@ -26,16 +22,12 @@ This repository documents a real, reproducible setup where an LLM runs fully off
 | Kernel    | 6.12.62+rpt-rpi-v8                        |
 | Storage   | microSD (swap-heavy)                      |
 
----
-
 ## ⚠️ Warnings
 
 - Compilation takes ~24 hours on Pi Zero 2W
 - Swap is mandatory (2 GB or more)
 - Heavy swap usage will wear SD cards. So use a good one
 - This is for experimentation & learning, not production
-
----
 
 ## 🧠 Model used
 
@@ -47,8 +39,6 @@ This repo uses a very small, heavily quantized model:
 
 Larger models may *not* run on this hardware.
 
----
-
 ## 🔧 Step 1: Check memory
 
 ```bash
@@ -59,8 +49,6 @@ Expected (approx):
 
 - RAM: ~416 MB available
 - Swap: small or disabled by default
-
----
 
 ## 🔁 Step 2: Increase swap memory
 
@@ -94,16 +82,12 @@ Expected:
 
 - Swap: ~2.0 GB
 
----
-
 ## 🛠️ Step 3: Install build dependencies
 
 ```bash
 sudo apt update
 sudo apt install -y build-essential cmake git
 ```
-
----
 
 ## 📦 Step 4: Clone llama.cpp
 
@@ -115,8 +99,6 @@ git clone https://github.com/ggml-org/llama.cpp
 cd llama.cpp
 ```
 
----
-
 ## 🧱 Step 5: Configure the build
 
 ```bash
@@ -124,8 +106,6 @@ cmake -B build
 ```
 
 No special flags are required for Pi Zero 2W.
-
----
 
 ## 🐌 Step 6: Build (this takes a long time)
 
@@ -139,8 +119,6 @@ cmake --build build --config Release -j3
 - Swap usage: 1–1.5 GB
 - System remains responsive but slow
 
----
-
 ## 📥 Step 7: Download a tiny model
 
 ```bash
@@ -148,8 +126,6 @@ cd models
 
 wget https://huggingface.co/bartowski/SmolLM2-135M-Instruct-GGUF/resolve/main/SmolLM2-135M-Instruct-Q4_K_M.gguf
 ```
-
----
 
 ## ▶️ Step 8: Run the model
 
@@ -216,8 +192,6 @@ llama_memory_breakdown_print: | memory breakdown [MiB] | total   free    self   
 llama_memory_breakdown_print: |   - Host               |                  377 =    98 +     180 +      98                |
 ```
 
----
-
 ## 📊 Observed performance
 
 - Prompt processing: ~10–18 tokens/sec
@@ -233,8 +207,6 @@ Model ~180 MiB
 Context + compute ~200 MiB
 ```
 
----
-
 ## 🧩 Why this works
 
 - Small model (135M params)
@@ -243,16 +215,12 @@ Context + compute ~200 MiB
 - Swap-backed virtual memory
 - ARM64 build with minimal background services
 
----
-
 ## 🚫 Known limitations
 
 - Very small context window
 - Responses can be repetitive or incoherent
 - No parallel workloads
 - SD card wear due to swap
-
----
 
 ## 💡 Who is this for?
 
@@ -261,23 +229,17 @@ Context + compute ~200 MiB
 - People curious about the absolute lower bound for LLMs
 - Anyone who asked: *“Will this even run?”*
 
----
-
 ## 📜 License
 
 This repo documents usage of **llama.cpp**, which is licensed under **MIT**.
 
 Models are subject to their respective licenses. Please check Hugging Face before redistribution.
 
----
-
 ## 🙌 Acknowledgements
 
 - **llama.cpp** by ggml-org
 - **SmolLM2** model authors
 - Raspberry Pi community for enabling questionable ideas like this
-
----
 
 ## ⭐ Note
 
